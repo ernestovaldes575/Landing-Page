@@ -1,1 +1,26 @@
 @import "tailwindcss";
+
+@theme {
+    /* Animación de entrada suave (Fade In Up) */
+    --animate-reveal: reveal 0.8s cubic-bezier(0, 0, 0.2, 1) forwards;
+
+    @keyframes reveal {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}
+/* Clase de utilidad para aplicar la animación cuando sea visible */
+.reveal {
+    opacity: 0;
+}
+
+.reveal.active {
+    animation: var(--animate-reveal);
+}
